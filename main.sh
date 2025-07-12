@@ -59,5 +59,5 @@ curl -s -X POST -H "Content-Type: application/json" \
 if [ -z "$INFO" ]; then
   echo "⚠️ Menara tidak ditemukan dalam database lokal."
 else
-  echo "✅ Menara ditemukan dan dilaporkan ke Discord."
+  echo "✅ Menara ditemukan."
 fi
