@@ -26,4 +26,12 @@ pkg update && pkg install termux-api
 ```bash
 termux-location
 ```
+### 3. Izinkan file untuk bisa di jalankan dengan command:
+```bash
+chmod 777 *
+```
 
+### 4. Jalankan File
+```bash
+./main.sh
+```
