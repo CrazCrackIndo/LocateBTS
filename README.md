@@ -1,35 +1,29 @@
-# 📡 LocateBTS – CID Tower Tracker via Termux
+# 📡 LocatorBTS – CID Tower Tracker via Termux
 
-**SkizaLocator** adalah skrip pelacak posisi menara seluler (BTS) berbasis MCC, MNC, LAC, dan CID menggunakan Android + Termux.  
-Dikembangkan sebagai bagian dari sistem **SkizaNiza**, alat ini memanfaatkan data langsung dari perangkat untuk mengirim laporan ke **Discord Webhook** secara otomatis.
+**LocatorBTS** adalah alat investigasi digital berbentuk binary untuk mendeteksi posisi BTS (menara seluler) berdasarkan CID, LAC, MCC, dan MNC langsung dari perangkat Android menggunakan Termux.
+
+Dikembangkan untuk keperluan OSINT, investigasi pribadi, atau pelacakan sinyal, alat ini cocok untuk lingkungan stealth dan taktis.
 
 ---
 
 ## ⚙️ Fitur
 
-- Deteksi otomatis MCC, MNC, LAC, CID dari SIM Card aktif
-- Ambil lokasi GPS dari perangkat (via `termux-location`)
-- Cocokkan data tower dengan file referensi `510.csv`
-- Kirim hasilnya ke Discord webhook dalam format terstruktur
+- Ambil otomatis MCC, MNC, LAC, CID dari SIM aktif
+- Dapatkan lokasi GPS langsung dari perangkat
+- Cocokkan ke database `510.csv` untuk data tower publik
 
 ---
 
-## 📦 Persyaratan
+## 📲 PERSYARATAN WAJIB
 
-- Perangkat Android dengan SIM aktif
-- [Termux](https://f-droid.org/packages/com.termux/) + izin lokasi dan telephony
-- File `510.csv` (sudah tersedia di repo ini)
-- Internet aktif
+Sebelum menjalankan file binary `locator`, pastikan kamu:
 
----
-
-## 🚀 Cara Menggunakan
-
-### 1. Instalasi di Termux
+### ✅ 1. Install Termux & Termux:API
 ```bash
-pkg update && pkg install termux-api jq
-git clone https://github.com/kamu/skizalocator.git
-cd skizalocator
-
-bash main.sh
+pkg update && pkg install termux-api
+```
+### 2. Aktifkan izin Lokasi dengan execute command
+```bash
+termux-location
+```
 
