@@ -47,13 +47,17 @@ else
 fi
 
 # Kirim ke Discord
-echo "[*] Mengirim laporan ke Discord..."
-curl -X POST -H "Content-Type: application/json" \
+curl -s -X POST -H "Content-Type: application/json" \
 -d "{
   \"username\": \"SkizaLocator\",
   \"avatar_url\": \"https://i.imgur.com/JFzZQZZ.png\",
   \"content\": \"🚨 **Laporan CID**\nMCC: $MCC | MNC: $MNC | LAC: $LAC | CID: $CID\n📍 Lokasi: https://maps.google.com/?q=$LAT,$LON\n$TOWER_INFO\"
 }" \
-"$WEBHOOK_URL"
+"$WEBHOOK_URL" > /dev/null
 
-echo "[✓] Laporan selesai dikirim."
+# Notifikasi akhir
+if [ -z "$INFO" ]; then
+  echo "⚠️ Menara tidak ditemukan dalam database lokal."
+else
+  echo "✅ Menara ditemukan dan dilaporkan ke Discord."
+fi
